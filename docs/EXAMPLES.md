@@ -114,6 +114,16 @@
     $people = $odataClient->from('People')->order($order)->get();
 ```
 
+## Expand a collection
+
+```php
+    // Expand all entities from the "People" Entity by PersonGender
+    $people = $odataClient->from('People')->expand('PersonGender')->get();
+
+    // Expand all entities from the "People" Entity by PersonGender and PersonOccupation
+    $people = $odataClient->from('People')->expand(['PersonGender', 'PersonOccupation'])->get();
+```
+
 ## Count a collection
 
 ```php
