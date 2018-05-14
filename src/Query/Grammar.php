@@ -38,7 +38,7 @@ class Grammar implements IGrammar
         'queryString',
         'properties',
         'wheres',
-        //'expand',
+        'expands',
         //'search',
         'orders',
         'skip',
@@ -144,7 +144,7 @@ class Grammar implements IGrammar
                 !empty($query->properties)
                 || isset($query->wheres)
                 || isset($query->orders)
-                || isset($query->expand)
+                || isset($query->expands)
                 || isset($query->take)
                 || isset($query->skip)
             )) {
@@ -197,6 +197,23 @@ class Grammar implements IGrammar
         }
         
         return $select;
+    }
+
+    /**
+     * Compile the "expand" portions of the query.
+     *
+     * @param Builder  $query
+     * @param array    $expands
+     *
+     * @return string
+     */
+    protected function compileExpands(Builder $query, $expands)
+    {
+        if (! empty($expands)) {
+            return $this->appendQueryParam('$expand=') . implode(',', $expands);
+        }
+
+        return '';
     }
 
     /**
