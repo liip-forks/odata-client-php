@@ -1,6 +1,6 @@
 {
     "name": "liip-forks/odata-client",
-    "version": "0.2.8",
+    "version": "0.2.9",
     "description": "Saint Systems OData Client for PHP",
     "keywords": ["odata", "rest", "php"],
     "homepage": "https://github.com/saintsystems/odata-client-php",
